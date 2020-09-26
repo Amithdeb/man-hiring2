@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import Data from '../src/Components/Data/data.json';
+import Person from './Components/Person/Person';
+import Hire from './Components/Hire/Hire';
 function App() {
+  const [user,setuser]=useState([])
+  const handlePeople=(y)=>{
+    const newpeople=[...user,y]
+    setuser(newpeople)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      {Data.map(x=><Person person={x} handlepeople={handlePeople}></Person>)}
+      <Hire user={user} ></Hire>
     </div>
   );
 }

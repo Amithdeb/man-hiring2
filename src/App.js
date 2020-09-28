@@ -4,15 +4,16 @@ import Person from './Components/Person/Person';
 import Hire from './Components/Hire/Hire';
 function App() {
   const [user,setuser]=useState([])
-  const handlePeople=(y)=>{
+  const handlepeople=(y)=>{
     const newpeople=[...user,y]
     setuser(newpeople)
   }
-  return (
+  return (<div style={{display:"flex"}}>
     <div >
-      {Data.map(x=><Person person={x} handlepeople={handlePeople}></Person>)}
-      <Hire user={user} ></Hire>
+      {Data.map(x=><Person person={x} handlepeople={handlepeople}></Person>)}
+      
     </div>
+    <div><Hire user={user} ></Hire></div></div>
   );
 }
 
